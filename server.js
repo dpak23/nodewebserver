@@ -1,6 +1,7 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
+const port = process.env.PORT || 3000; // Process has all the environment variables for our app.
 
 var app = express();
 
@@ -20,9 +21,9 @@ app.use((req, res, next) => {
    next();
 });
 
-app.use((req, res, next) => {
-   res.render('maintenence.hbs');
-});
+// app.use((req, res, next) => {
+//    res.render('maintenence.hbs');
+// });
 
 hbs.registerHelper('getCurrentYear', () => {
     return new Date().getFullYear()
@@ -48,4 +49,6 @@ app.get('/about', (req, res) => {
     });
 });
 
-app.listen(3000);
+app.listen(port, () => {
+    console.log(`Server is up @ ${port}`);
+});
