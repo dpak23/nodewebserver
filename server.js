@@ -49,6 +49,14 @@ app.get('/about', (req, res) => {
     });
 });
 
+app.get('/Projects', (req, res) => {
+    res.render('projects.hbs', {
+        title: 'Deepaks Projects Page',
+        pageTitle : 'Welcome to Deepak\'s home',
+        siteInformation:'All Projects',
+    });
+});
+
 app.listen(port, () => {
     console.log(`Server is up @ ${port}`);
 });
